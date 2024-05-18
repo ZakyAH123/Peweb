@@ -35,14 +35,20 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Login</h2>
+        <?php if (isset($_GET['error'])): ?>
+            <p class="error"><?= htmlspecialchars($_GET['error']) ?></p>
+        <?php endif; ?>
         <form action="prosesLogin.php" method="POST">
             <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="password" placeholder="Password" required>
+            <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
     </div>
