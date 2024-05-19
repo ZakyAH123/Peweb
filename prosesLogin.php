@@ -19,18 +19,18 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if ($password === $row["pass"]) {
-            header("Location: home.html");
+            header("Location: home.php");
             exit;
         } else {
-            header("Location: login.php?error=Username or password incorrect");
+            header("Location: logins.php?error=Username or password incorrect");
             exit;
         }
     } else {
-        header("Location: login.php?error=Username or password incorrect");
+        header("Location: logins.php?error=Username or password incorrect");
         exit;
     }
 } else {
-    header("Location: login.php?error=Error: Username or password not found in form data.");
+    header("Location: logins.php?error=Error: Username or password not found in form data.");
     exit;
 }
 
