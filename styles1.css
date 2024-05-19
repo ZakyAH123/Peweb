@@ -1,0 +1,216 @@
+
+:root{
+    --bg:#272730;
+    --color1:#e6e6e6;
+    --color2:#32323e;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color2); /* Default background color if --bg is not defined */
+    color: #fff;
+}
+h3{
+    text-align: left;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg);
+    padding: 8px 168px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar-left,
+.navbar-right{
+    display: flex;
+    align-items: center;
+
+    
+}
+.logo img {
+    max-height: 50px; /* Atur tinggi maksimum logo agar sesuai dengan navbar */
+    height: auto; /* Pertahankan aspek rasio logo */
+    width: auto; /* Pertahankan aspek rasio logo */
+    max-width: 100%; /* Pastikan logo tidak melampaui lebar kontainernya */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    
+}
+
+section {
+    padding: 30px 20px;
+    text-align: center;
+    margin: auto;
+    max-width: 1120px;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    opacity: 0.5;
+    transform: scale(0.8);
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.slide.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+.promotion-list, .topup-grid {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.promotion-item {
+    position: relative;
+    flex: 1 1 calc(15% - 20px); 
+    min-width: 140px; 
+    max-width: 19%;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+}
+.topup-item {
+    position: relative;
+    /*flex: 1 1 calc(30% - 20px);
+    min-height: 250px;
+    max-height: 30%;
+    */margin: 10px;
+    overflow: hidden;
+    border-radius: 9px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+}
+
+.promotion-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    display: block;
+    border-radius: 5px;
+}
+.topup-item img {
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    display: block;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+}
+
+.topup-item:hover img {
+    filter: blur(12px);
+    /*Applyblureffect*/transform: scale(1.1);
+    /*Slightlyscaleuptheimage*/
+    -webkit-filter: blur(12px);
+}
+
+.promotion-item .overlay, .topup-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /*Semi-transparentblackbackground*/color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /*Smoothtransitionforopacity*/box-sizing: border-box;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.promotion-item:hover .overlay, .topup-item:hover .overlay {
+    opacity: 1;
+    border: 4px solid white; /* White border */
+}
+
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Atur posisi awal di luar layar */
+    width: 250px; /* Lebar toolbar */
+    height: 100%;
+    background-color: #333; /* Warna latar belakang toolbar */
+    padding-top: 60px; /* Sesuaikan dengan tinggi navbar */
+    transition: left 0.3s; /* Efek transisi ketika toolbar muncul atau hilang */
+}
+
+.toolbar a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.toolbar a:hover {
+    background-color: #555; /* Warna latar belakang saat di-hover */
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}

@@ -19,7 +19,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if ($password === $row["pass"]) {
-            header("Location: home.php");
+            header("Location: home.html");
             exit;
         } else {
             header("Location: logins.php?error=Username or password incorrect");
