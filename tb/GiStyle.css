@@ -1,0 +1,123 @@
+body {
+    background-color: #1e1e2e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+.header img {
+    max-width: 100%;
+    height: auto;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.left-panel {
+    width: 300px;
+    margin-right: 20px;
+}
+.left-panel img {
+    max-width: 100%;
+    height: auto;
+}
+.right-panel {
+    width: 600px;
+    background-color: #2e2e3e;
+    padding: 20px;
+    border-radius: 10px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3e3e4e;
+    color: #ffffff;
+}
+.form-group input[type="submit"] {
+    background-color: #4e4e6e;
+    cursor: pointer;
+}
+.form-group input[type="submit"]:hover {
+    background-color: #5e5e7e;
+}
+.nominal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.nominal-item {
+    background-color: #3e3e4e;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.nominal-item:hover {
+    background-color: #4e4e6e;
+}
+.payment-methods {
+    margin-top: 20px;
+}
+.payment-methods .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.payment-methods .tabs div {
+    background-color: #3e3e4e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+}
+.payment-methods .tabs div:hover, .payment-methods .tabs div.active {
+    background-color: #4e4e6e;
+}
+.payment-methods .tab-content {
+    display: none;
+}
+.payment-methods .tab-content.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.payment-item {
+    background-color: #3e3e4e;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #3e3e4e;
+    margin-top: 20px;
+}
+.footer img {
+    max-width: 100%;
+    height: auto;
+}
