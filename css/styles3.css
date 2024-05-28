@@ -1,0 +1,135 @@
+.head{
+    display: block;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    padding: 5px;
+
+}
+
+#status{
+    display: inline-block;
+    width: 200px;
+    height: 37px;
+}
+
+/* .itu{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+}
+
+.itu input{
+    height: 26px;
+
+} */
+
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.filter {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter select,
+.filter .search-box input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+.filter .search-box {
+    display: inline-block;
+    align-items: center;
+}
+
+.filter .search-box .search-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.isi{
+    display: inline-block;
+    margin: 50px auto;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 850px;
+    height: 400px;
+    /* overflow-y: scroll; */
+}
+
+.isi table{
+    width: 100%;
+    margin: 0px auto;
+}
+.isi thead{
+    /* background-color: aqua; */
+    width: 100%;
+    /* margin: 0px auto; */
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-table th {
+    background-color: #f1f1f1;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+}
+
+.no-data img {
+    max-width: 100px;
+    height: auto;
+}
+
+
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    
+    
+}
+
+.pagination button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}

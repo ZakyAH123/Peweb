@@ -16,10 +16,10 @@ function showSlides() {
 };
 
 document.addEventListener("DOMContentLoaded", function() {
-    const menuIcon = document.querySelector(".menu-icon");
-    const toolbar = document.querySelector(".toolbar");
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
 
-    menuIcon.addEventListener("click", function() {
-        toolbar.classList.toggle("active");
+    menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
     });
 });
