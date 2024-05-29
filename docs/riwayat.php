@@ -21,10 +21,10 @@
                 <p>Website Top Up Anti Buta Map, Tercepat Dan Terpercaya Di Indonesia.</p>
         
             </div>
-            <div class="navbar-right">
+            <!-- <div class="navbar-right">
                 <i data-feather="log-in"></i>
                 <a href="register.html" id="login"> Masuk/Daftar</a>
-            </div>
+            </div> -->
         </nav>    
     </header>
     
@@ -60,7 +60,7 @@
                     <select id="status">
                         <option value="">Semua</option>
                         <option value="Belum Bayar">Belum Bayar</option>
-                        <option value="Paid">Paid</option>
+                        <option value="Paid">Sudah Dibayar</option>
                         <option value="Pending">Pending</option>
                         <option value="Processing">Processing</option>
                         <option value="Success">Success</option>
@@ -87,12 +87,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Data transaksi akan ditambahkan di sini -->
+                        <?php
+                            include 'prosesTransaksi.php';
+                            generateTransactions();
+                            ?>
                         </tbody>
                     </table>
-                    <div class="no-data">
-                        <img src="path/to/content-missing.gif" alt="Data not found">
-                    </div>
+                    <!-- <div class="no-data">
+                        <img src="" alt="Data not found">
+                    </div> -->
                 </div>
 
                 <div class="pagination">

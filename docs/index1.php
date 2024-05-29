@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar">
+    <nav class="navbar">
             <div class="navbar-left">
                 <a href="#" class="menu-icon"><i data-feather="menu"></i></a>
                 <a href="#" class="logo"><img src="../assets/xcashop.webp" alt="logo"></a>
@@ -21,9 +25,16 @@
             </div>
             <div class="navbar-right">
                 <i data-feather="log-in"></i>
-                <a href="http://localhost/Peweb/register.php" id="login"> Masuk/Daftar</a>
+                <?php if(isset($_SESSION['username'])): ?>
+                    <a href="riwayat.php" id="login"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                    <a href="logout.php">Logout</a>
+                <?php else: ?>
+                    <a href="http://localhost/Peweb/logins.php" id="login">Masuk/Daftar</a>
+                <?php endif; ?>
             </div>
-        </nav>    
+        </nav>
+</nav>
+   
     </header>
     <!-- <div class="sidebar" id="sidebar">
         <a href="#">Link 1</a>
@@ -217,8 +228,9 @@
 
     <!-- <script src="/docs/script.js"></script> -->
     
+    <script src="https://unpkg.com/feather-icons"></script>
     <script>
-        feather.replace();
+        feather.replace()
     </script>
 </body>
 </html>

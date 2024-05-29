@@ -76,6 +76,7 @@ header{
     max-width: 1200px;
     margin: 5px auto auto auto;
     padding: 0px 10px;
+    align-items: center;
 }
 
 .menu-icon{
@@ -92,7 +93,6 @@ header{
     padding: 0px 15px;
     color: white;
 }
-
 .navbar-right{
     display: flex;
     width: 200px;

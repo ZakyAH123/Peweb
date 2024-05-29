@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $conn = new mysqli("localhost", "root", "", "gdrive");
 
@@ -19,7 +20,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if ($password === $row["pass"]) {
-            header("Location: http://localhost/Peweb/docs/index1.html");
+            $_SESSION['username'] = $username; // Store the username in session
+            header("Location: http://localhost/Peweb/docs/index1.php");
             exit;
         } else {
             header("Location: logins.php?error=Username or password incorrect");
@@ -35,5 +37,4 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 }
 
 $conn->close();
-
 ?>
