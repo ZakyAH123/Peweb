@@ -21,10 +21,6 @@
                 <p>Website Top Up Anti Buta Map, Tercepat Dan Terpercaya Di Indonesia.</p>
         
             </div>
-            <!-- <div class="navbar-right">
-                <i data-feather="log-in"></i>
-                <a href="register.html" id="login"> Masuk/Daftar</a>
-            </div> -->
         </nav>    
     </header>
     
@@ -39,7 +35,7 @@
                         <span class="icon">&#128100;</span>
                         <span class="link-text">Akun</span>
                     </a>
-                    <a href="/account/transaction" class="nav-link">
+                    <a href="riwayat.php" class="nav-link">
                         <span class="icon">&#128179;</span>
                         <span class="link-text">Riwayat Transaksi</span>
                     </a>
@@ -76,27 +72,55 @@
                 </div>    
 
                 <div class="table-container">
-                    <table class="transaction-table">
-                        <thead>
-                            <tr>
-                                <th>Nomor Pesanan</th>
-                                <th>Layanan</th>
-                                <th>Nama</th>
-                                <th>Pembayaran</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                            include 'prosesTransaksi.php';
-                            generateTransactions();
-                            ?>
-                        </tbody>
-                    </table>
-                    <!-- <div class="no-data">
-                        <img src="" alt="Data not found">
-                    </div> -->
-                </div>
+    <table class="transaction-table">
+        <thead>
+            <tr>
+                <th>Nomor Pesanan</th>
+                <th>Layanan</th>
+                <th>Nama</th>
+                <th>Pembayaran</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "gdrive";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Fetch data from the riwayatbeli table
+            $sql = "SELECT NomorPesanan, Layanan, NamaBarang, Pembayaran, Statuss FROM riwayatbeli";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["NomorPesanan"] . "</td>";
+                    echo "<td>" . $row["Layanan"] . "</td>";
+                    echo "<td>" . $row["NamaBarang"] . "</td>";
+                    echo "<td>" . $row["Pembayaran"] . "</td>";
+                    echo "<td>" . $row["Statuss"] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>No data found</td></tr>";
+            }
+            $conn->close();
+            ?>
+        </tbody>
+    </table>
+</div>
+
 
                 <div class="pagination">
                     <button>Prev</button>

@@ -71,10 +71,16 @@ body {
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 .nominal-item:hover {
+    transform: scale(1.1);
     background-color: #4e4e6e;
+}
+.nominal-item.active {
+    background-color: #5e81ac;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 .payment-methods {
     margin-top: 20px;
@@ -89,12 +95,14 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
     text-align: center;
     flex: 1;
     margin: 0 5px;
 }
-.payment-methods .tabs div:hover, .payment-methods .tabs div.active {
+.payment-methods .tabs div:hover,
+.payment-methods .tabs div.active {
+    transform: scale(1.1);
     background-color: #4e4e6e;
 }
 .payment-methods .tab-content {
@@ -110,6 +118,19 @@ body {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.payment-item img {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.payment-item.active-payment {
+    background-color: #5e81ac;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 .footer {
     text-align: center;
