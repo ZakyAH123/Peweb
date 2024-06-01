@@ -229,6 +229,7 @@ session_start();
     <!-- <script src="/docs/script.js"></script> -->
     
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="script.js"></script>
     <script>
         feather.replace()
     </script>
