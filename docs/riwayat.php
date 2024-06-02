@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
     <title>Xcashshop</title>
     <link rel="stylesheet" href="../css/styles2.css">
     <link rel="stylesheet" href="../css/styles3.css">
@@ -21,6 +22,23 @@
                 <p>Website Top Up Anti Buta Map, Tercepat Dan Terpercaya Di Indonesia.</p>
         
             </div>
+            <style>
+                .transaction-table tbody tr {
+                    color: white;
+                }
+
+                .transaction-table {
+                border-collapse: collapse;
+                width: 100%;
+                }
+
+                .transaction-table, 
+                .transaction-table th, 
+                .transaction-table td {
+                border: 1px solid grey;
+                }
+
+            </style>
         </nav>    
     </header>
     
@@ -72,56 +90,54 @@
                 </div>    
 
                 <div class="table-container">
-    <table class="transaction-table">
-        <thead>
-            <tr>
-                <th>Nomor Pesanan</th>
-                <th>Layanan</th>
-                <th>Nama</th>
-                <th>Pembayaran</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "gdrive";
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>Nomor Pesanan</th>
+                                <th>Layanan</th>
+                                <th>Nama</th>
+                                <th>Pembayaran</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <?php
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "gdrive";
 
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password, $dbname);
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
 
-            // Fetch data from the riwayatbeli table
-            $sql = "SELECT NomorPesanan, Layanan, NamaBarang, Pembayaran, Statuss FROM riwayatbeli";
-            $result = $conn->query($sql);
+                                // Fetch data from the riwayatbeli table
+                                $sql = "SELECT NomorPesanan, Layanan, NamaBarang, Pembayaran, Statuss FROM riwayatbeli";
+                                $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["NomorPesanan"] . "</td>";
-                    echo "<td>" . $row["Layanan"] . "</td>";
-                    echo "<td>" . $row["NamaBarang"] . "</td>";
-                    echo "<td>" . $row["Pembayaran"] . "</td>";
-                    echo "<td>" . $row["Statuss"] . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='5'>No data found</td></tr>";
-            }
-            $conn->close();
-            ?>
-        </tbody>
-    </table>
-</div>
-
-
+                                if ($result->num_rows > 0) {
+                                    // Output data of each row
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row["NomorPesanan"] . "</td>";
+                                        echo "<td>" . $row["Layanan"] . "</td>";
+                                        echo "<td>" . $row["NamaBarang"] . "</td>";
+                                        echo "<td>" . $row["Pembayaran"] . "</td>";
+                                        echo "<td>" . $row["Statuss"] . "</td>";
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='5'>No data found</td></tr>";
+                                }
+                                $conn->close();
+                                ?>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="pagination">
                     <button>Prev</button>
                     <button>Next</button>

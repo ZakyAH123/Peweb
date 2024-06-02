@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xcashshop</title>
+    <style>
+        body {
+            background-color: #1e1e2e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .left-panel {
+            width: 300px;
+            margin-right: 20px;
+        }
+        .left-panel img {
+            max-width: 100%;
+            height: auto;
+        }
+        .right-panel {
+            width: 600px;
+            background-color: #2e2e3e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3e3e4e;
+            color: #ffffff;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4e4e6e;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #5e5e7e;
+        }
+        .nominal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .nominal-item {
+            background-color: #3e3e4e;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nominal-item:hover {
+            transform: scale(1.1);
+            background-color: #4e4e6e;
+        }
+        .nominal-item.active {
+            background-color: #5e81ac;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        .payment-methods {
+            margin-top: 20px;
+        }
+        .payment-methods .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .payment-methods .tabs div {
+            background-color: #3e3e4e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            margin: 0 5px;
+        }
+        .payment-methods .tabs div:hover,
+        .payment-methods .tabs div.active {
+            transform: scale(1.1);
+            background-color: #4e4e6e;
+        }
+        .payment-methods .tab-content {
+            display: none;
+        }
+        .payment-methods .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .payment-item {
+            background-color: #3e3e4e;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .payment-item img {
+            width: 40px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .payment-item.active-payment {
+            background-color: #5e81ac;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #3e3e4e;
+            margin-top: 20px;
+        }
+        .footer img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="gambar/giwallpaper2.jpg" alt="Header Image">
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="left-panel">
+                <img src="gambar/giwallpaper1z.jpg" alt="Game Image">
+                <p>Genshin Impact</p>
+                <p>Top-Up Primogems Genshin Impact Dengan diskon hingga 20%:</p>
+                <ol>
+                    <li>Masukkan User ID</li>
+                    <li>Pilih Nominal Top Up</li>
+                    <li>Pilih Metode Pembayaran</li>
+                    <li>Masukkan Nomor Whatsapp untuk Konfirmasi dan Bukti Pembayaran</li>
+                    <li>Konfirmasi Top Up</li>
+                </ol>
+            </div>
+            <div class="right-panel">
+                <form>
+                    <div class="form-group">
+                        <label for="user-id">Masukkan User ID</label>
+                        <input type="text" id="user-id" name="user-id">
+                    </div>
+                    <div class="form-group">
+                        <label for="top-up">Pilih Nominal Top Up</label>
+                        <div class="nominal-grid">
+                            <div class="nominal-item" data-value="40">60 Genesis Crystal - Rp 13.999</div>
+                            <div class="nominal-item" data-value="40">330 Genesis Crystal - Rp 69.999</div>
+                            <div class="nominal-item" data-value="90">1090 Genesis Crystal - Rp 229.999</div>
+                            <div class="nominal-item" data-value="230">2240 Genesis Crystal - Rp 439.999</div>
+                            <div class="nominal-item" data-value="470">3880 Genesis Crystal - Rp 729.999</div>
+                            <div class="nominal-item" data-value="950">8080 Genesis Crystal - Rp 1469.999</div>
+                        </div>
+                    </div>
+                    <div class="form-group payment-methods">
+                        <label for="payment-method">Pilih Pembayaran</label>
+                        <div class="tabs">
+                            <div class="tab active" data-target="qris">QRIS</div>
+                            <div class="tab" data-target="e-wallet">E-Wallet</div>
+                            <div class="tab" data-target="convenience-store">Convenience Store</div>
+                            <div class="tab" data-target="virtual-account">Virtual Account</div>
+                        </div>
+                        <div class="tab-content active" id="qris">
+                            <div class="payment-item">
+                                <img src="gambar/qris.png" alt="QRIS">
+                                <p>QRIS Payment</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="e-wallet">
+                            <div class="payment-item">
+                                <img src="gambar/gopay.png" alt="GoPay">
+                                <p>Rp 52.430</p>
+                                <p>GoPay</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/gopay.png" alt="GoPay QR">
+                                <p>Rp 50.470</p>
+                                <p>GoPay QR</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/dana.png" alt="Dana">
+                                <p>Rp 52.430</p>
+                                <p>Dana</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/dana.png" alt="Dana QR">
+                                <p>Rp 50.470</p>
+                                <p>Dana QR</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/shope.png" alt="ShopeePay">
+                                <p>Rp 52.430</p>
+                                <p>ShopeePay</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/shope.png" alt="ShopeePay QR">
+                                <p>Rp 50.470</p>
+                                <p>ShopeePay QR</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="convenience-store">
+                            <div class="payment-item">
+                                <img src="gambar/alfa.png" alt="Alfamart">
+                                <p>Alfamart</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/indo.png" alt="Indomaret">
+                                <p>Indomaret</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="virtual-account">
+                            <div class="payment-item">
+                                <img src="gambar/bca.png" alt="BCA">
+                                <p>BCA</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/bni.png" alt="BNI">
+                                <p>BNI</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/bri.png" alt="BRI">
+                                <p>BRI</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/mandiri.png" alt="Mandiri">
+                                <p>Mandiri</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/bsi.png" alt="BSI">
+                                <p>BSI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp-number">Nomor Whatsapp</label>
+                        <input type="text" id="whatsapp-number" name="whatsapp-number">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Konfirmasi Top Up">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Xcashshop. Semua Hak Cipta Dilindungi.</p>
+        <a href="file:///G:/1.%20FadjrieYaumil%20F/UNAND%20INFORMATIKA/Assigment%20Informatika%20Semester%204/pemrogramanWeb/tb/test.html"><img src="gambar/shop.png" width="100" height="auto" alt="Footer Image" ></a>
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.tabs .tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const nominalItems = document.querySelectorAll('.nominal-item');
+        const paymentItems = document.querySelectorAll('.payment-item');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                document.getElementById(tab.getAttribute('data-target')).classList.add('active');
+            });
+        });
+
+        nominalItems.forEach(item => {
+            item.addEventListener('click', () => {
+                nominalItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        paymentItems.forEach(item => {
+            item.addEventListener('click', () => {
+                paymentItems.forEach(i => i.classList.remove('active-payment'));
+                item.classList.add('active-payment');
+            });
+        });
+    </script>
+</body>
+</html>

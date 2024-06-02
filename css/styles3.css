@@ -81,6 +81,7 @@
 }
 
 .table-container {
+    border: 1px solid white;
     overflow-x: auto;
 }
 
