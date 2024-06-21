@@ -26,8 +26,8 @@ session_start();
             <div class="navbar-right">
                 <i data-feather="log-in"></i>
                 <?php if(isset($_SESSION['username'])): ?>
-                    <a href="riwayat.php" id="login"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
-                    <a href="logout.php">Logout</a>
+                    <a href="akun.php" id="login"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                    <a href="logout.php"  style="color: red;">Logout</a>
                 <?php else: ?>
                     <a href="http://localhost/Peweb/logins.php" id="login">Masuk/Daftar</a>
                 <?php endif; ?>
@@ -79,78 +79,113 @@ session_start();
         <div class="container">
             <div class="topup-grid">
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/ngml.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">Mobile Legend</div>
+                    <a href="../tb/Mobile_Legends.html">
+                        <img src="../assets/ngml.webp" alt="Mobile Legend">
+                        <div class="overlay">Mobile Legend</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/1.webp" alt="Weekly Diamond"></a>
-                    <div class="overlay">Weekly Diamond</div>
+                    <a href="../tb/weeklyml.html">
+                        <img src="../assets/1.webp" alt="Weekly Diamond">
+                        <div class="overlay">Weekly Diamond</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/ff.webp" alt="Free Fire"></a>
-                    <div class="overlay">Free Fire</div>
+                    <a href="../tb/freefire.html">
+                        <img src="../assets/ff.webp" alt="Free Fire">
+                        <div class="overlay">Free Fire</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/pubg.webp" alt="PUBG Mobile"></a>
-                    <div class="overlay">PUBG Mobile</div>
+                    <a href="../tb/pubg.html">
+                        <img src="../assets/pubg.webp" alt="PUBG Mobile">
+                        <div class="overlay">PUBG Mobile</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/hok.webp" alt="Honor Of Kings"></a>
-                    <div class="overlay">Honor Of Kings</div>
+                    <a href="../tb/hok.html">
+                        <img src="../assets/hok.webp" alt="Honor Of Kings">
+                        <div class="overlay">Honor Of Kings</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/lol.webp" alt="League Of Legends"></a>
-                    <div class="overlay">League Of Legends</div>
+                    <a href="../tb/lol.html">
+                        <img src="../assets/lol.webp" alt="League Of Legends">
+                        <div class="overlay">League Of Legends</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="../tb/halaman2.html">
+                    <a href="../tb/Genshin_Impact.html">
                         <img src="../assets/gi.webp" alt="Genshin Impact">
                         <div class="overlay">Genshin Impact</div>
                     </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/zepeto.webp" alt="Zepeto"></a>
-                    <div class="overlay">Zepeto</div>
+                    <a href="../tb/zepeto.html">
+                        <img src="../assets/zepeto.webp" alt="Zepeto">
+                        <div class="overlay">Zepeto</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/hasr.webp" alt="Honkai Star Rail"></a>
-                    <div class="overlay">Hongkai Star Rail</div>
+                    <a href="../tb/hsr.html">
+                        <img src="../assets/hasr.webp" alt="Honkai Star Rail">'
+                        <div class="overlay">Hongkai Star Rail</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/hi.webp" alt="Hongkai Impact 3rd"></a>
-                    <div class="overlay">Hongkai Impact 3rd</div>
+                    <a href="../tb/Honkai3.html">
+                        <img src="../assets/HI.webp" alt="Honkai Star Rail">'
+                        <div class="overlay">Hongkai Impact 3rd</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/valoranat.webp" alt="Valorant"></a>
-                    <div class="overlay">Valorant</div>
+                    <a href="../tb/valorant.html">
+                        <img src="../assets/valoranat.webp" alt="Valorant">
+                        <div class="overlay">Valorant</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/codm.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">COD Mobile</div>
+                    <a href="../tb/cod.html">
+                        <img src="../assets/codm.webp" alt="Mobile Legend">
+                        <div class="overlay">COD Mobile</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/undawn.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">Undawn</div>
+                    <a href="../tb/undawn.html">
+                        <img src="../assets/undawn.webp" alt="Mobile Legend">
+                        <div class="overlay">Undawn</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/aov.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">Arena Of Valor</div>
+                    <a href="../tb/aov.html">
+                        <img src="../assets/aov.webp" alt="Mobile Legend">
+                        <div class="overlay">Arena Of Valor</div>
+                    </a>
+                    
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/supersus.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">Supersus</div>
+                    <a href="../tb/supersus.html">
+                        <img src="../assets/supersus.webp" alt="Mobile Legend">
+                        <div class="overlay">Supersus</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/sausage.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">Sausage Party</div>
+                    <a href="../tb/sausage.html">
+                        <img src="../assets/sausage.webp" alt="Mobile Legend">
+                        <div class="overlay">Sausage Party</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/eggy.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">Eggy Party</div>
+                    <a href="../tb/eggy.html">
+                        <img src="../assets/eggy.webp" alt="Mobile Legend">
+                        <div class="overlay">Eggy Party</div>
+                    </a>
                 </div>
                 <div class="topup-item">
-                    <a href="#"><img src="../assets/fcmobile.webp" alt="Mobile Legend"></a>
-                    <div class="overlay">FC Mobile</div>
+                    <a href="../tb/FC.html">
+                        <img src="../assets/fcmobile.webp" alt="Mobile Legend">
+                        <div class="overlay">FC Mobile</div>
+                    </a>
                 </div>
                 
                 <!-- Add more unique top-up items as needed -->

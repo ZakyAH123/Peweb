@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +20,9 @@
         <nav class="navbar">
             <div class="navbar-left">
                 <a href="#" class="menu-icon"><i data-feather="menu"></i></a>
-                <a href="#" class="logo"><img src="../assets/xcashop.webp" alt="logo"></a>
+                <a href="index1.php" class="logo"><img src="../assets/xcashop.webp" alt="logo"></a>
                 <p>Website Top Up Anti Buta Map, Tercepat Dan Terpercaya Di Indonesia.</p>
         
-            </div>
-            <div class="navbar-right">
-                <i data-feather="log-in"></i>
-                <a href="akun.html" id="login"> Masuk/Daftar</a>
             </div>
         </nav>    
     </header>
@@ -36,7 +36,7 @@
         <aside class="sidebar">
             <nav>
                 <div class="nav-links">
-                    <a href="akun.html" class="nav-link">
+                    <a href="akun.php" class="nav-link">
                         <span class="icon">&#128100;</span>
                         <span class="link-text">Akun</span>
                     </a>
@@ -46,8 +46,8 @@
                     </a>
                 </div>
                 <button class="logout-button">
-                    <span class="icon">&#10162;</span>
-                    <span class="link-text">Keluar</span>
+                    <i class="icon">&#10162;</i>
+                    <a href="../logins.php" id="login" class="link-text">Keluar</a>
                 </button>
             </nav>
         </aside>
@@ -57,14 +57,17 @@
             <div class="profile-card">
                 <div class="profile-header">
                     <div class="profile-info">
-                        <div class="profile-img-container">
-                            <img alt="Viow" src="https://ui-avatars.com/api/?name=Viow+Wildani&background=707feb&color=fff" class="profile-img">
-                        </div>
-                        <div class="profile-text">
-                            <h3>Viow Wildani</h3>
-                            <p>Non Membership <span class="membership-icon">&#128736;</span></p>
-                        </div>
+                        <?php if(isset($_SESSION['username'])): ?>
+                            <div class="profile-img-container">
+                                <img alt="Profile Image" src="https://ui-avatars.com/api/?name=<?php echo urlencode($_SESSION['username']); ?>&background=707feb&color=fff" class="profile-img">
+                            </div>
+                            <div class="profile-text">
+                                <h3><?php echo htmlspecialchars($_SESSION['username']); ?></h3>
+                                <p>Non Membership <span class="membership-icon">&#128736;</span></p>
+                            </div> 
+                        <?php endif; ?>
                     </div>
+
                     <button type="button" class="edit-button">
                         <span class="edit-icon">&#128100;</span>
                         <span class="edit-text">Edit Profile</span>
@@ -104,13 +107,22 @@
                     <p class="order-label">Success</p>
                 </div>
                 <div class="order-item">
-                    <h3 class="order-count">0</h3>
+                    <h3 class="order-count" id="expired-orders-count">0</h3>
                     <p class="order-label">Expired</p>
                 </div>
             </div>
         </main>    
-
-        
-
+        <script>
+            async function fetchExpiredOrdersCount() {
+                try {
+                    const response = await fetch('Total.php');
+                    const data = await response.json();
+                    document.getElementById('expired-orders-count').textContent = data.count;
+                } catch (error) {
+                    console.error('Error fetching expired orders count:', error);
+                }
+            }
+            document.addEventListener('DOMContentLoaded', fetchExpiredOrdersCount);
+        </script>
 </body>
 </html>

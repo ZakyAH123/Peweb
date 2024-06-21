@@ -40,8 +40,18 @@
                     <?php elseif (isset($_GET['success'])): ?>
                         <p class="success"><?= htmlspecialchars($_GET['success']) ?></p>
                     <?php endif; ?>
+                    <div class="two-forms">
+                         <div class="input-box">
+                            <input type="text" name="NamaDepan" class="input-field" placeholder="Nama Depan">
+                            <i class="bx bx-user"></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="NamaBelakang" class="input-field" placeholder="Nama Belakang">
+                            <i class="bx bx-user"></i>
+                        </div>
+                    </div>
                     <div class="input-box">
-                        <input type="text" name="email" class="input-field" placeholder="Email">
+                        <input type="email" name="email" class="input-field" placeholder="Email">
                         <i class="bx bx-phone-call"></i>
                     </div>
                     <div class="input-box">

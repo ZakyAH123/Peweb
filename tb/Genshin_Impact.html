@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xcashshop</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="header">
+        <img src="gambar/header.webp" alt="Header Image">
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="left-panel">
+                <img src="gambar/Gi1.webp"  width="30%" alt="Game Image">
+                <p>Genshin Impact</p>
+                <p>Top-Up Genesis Crystal Genshin Impact Dengan diskon hingga 20%:</p>
+                <ol>
+                    <li>Masukkan User ID</li>
+                    <li>Pilih Nominal Top Up</li>
+                    <li>Pilih Metode Pembayaran</li>
+                    <li>Masukkan Nomor Whatsapp untuk Konfirmasi dan Bukti Pembayaran</li>
+                    <li>Konfirmasi Top Up</li>
+                </ol>
+            </div>
+            <div class="right-panel">
+                <form action="process.php" method="post" onsubmit="return validateForm()">
+                    <input type="hidden" name="source_file" value="Genshin_Impact.html">
+                    <div class="form-group">
+                        <label for="user-id">Masukkan User ID</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="user-id" name="user_id" style="border-radius: 20px;" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="top-up">Pilih Nominal Top Up</label>
+                        <div class="nominal-grid">
+                            <div class="nominal-item" data-value="60 Genesis Crystal - Rp 13.999">60 Genesis Crystal - Rp 13.999</div>
+                            <div class="nominal-item" data-value="330 Genesis Crystal - Rp 69.999">330 Genesis Crystal - Rp 69.999</div>
+                            <div class="nominal-item" data-value="1090 Genesis Crystal - Rp 229.999">1090 Genesis Crystal - Rp 229.999</div>
+                            <div class="nominal-item" data-value="2240 Genesis Crystal - Rp 439.999">2240 Genesis Crystal - Rp 439.999</div>
+                            <div class="nominal-item" data-value="3880 Genesis Crystal - Rp 729.999">3880 Genesis Crystal - Rp 729.999</div>
+                            <div class="nominal-item" data-value="8080 Genesis Crystal - Rp 1469.999">8080 Genesis Crystal - Rp 1469.999</div>
+                        </div>
+                        <input type="hidden" id="selected-nominal" name="selected_nominal">
+                    </div>
+                    <div class="form-group payment-methods">
+                        <label for="payment-method">Pilih Pembayaran</label>
+                        <div class="tabs">
+                            <div class="tab active" data-target="qris">QRIS</div>
+                            <div class="tab" data-target="e-wallet">E-Wallet</div>
+                            <div class="tab" data-target="convenience-store">Convenience Store</div>
+                            <div class="tab" data-target="virtual-account">Virtual Account</div>
+                        </div>
+                        <div class="tab-content active" id="qris">
+                            <div class="payment-item" data-method="QRIS">
+                                <img src="gambar/qris.png" alt="QRIS">
+                                <p>QRIS Payment</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="e-wallet">
+                            <div class="payment-item" data-method="GoPay">
+                                <img src="gambar/gopay.png" alt="GoPay">
+                                <p>GoPay</p>
+                            </div>
+                            <div class="payment-item" data-method="GoPay QR">
+                                <img src="gambar/gopay.png" alt="GoPay QR">
+                                <p>GoPay QR</p>
+                            </div>
+                            <div class="payment-item" data-method="Dana">
+                                <img src="gambar/dana.png" alt="Dana">
+                                <p>Dana</p>
+                            </div>
+                            <div class="payment-item" data-method="Dana QR">
+                                <img src="gambar/dana.png" alt="Dana QR">
+                                <p>Dana QR</p>
+                            </div>
+                            <div class="payment-item" data-method="ShopeePay">
+                                <img src="gambar/shope.png" alt="ShopeePay">
+                                <p>ShopeePay</p>
+                            </div>
+                            <div class="payment-item" data-method="ShopeePay QR">
+                                <img src="gambar/shope.png" alt="ShopeePay QR">
+                                <p>ShopeePay QR</p>
+                            </div>
+                            <div class="payment-item" data-method="LinkAja">
+                                <img src="gambar/link.png" alt="LinkAja">
+                                <p>LinkAja</p>
+                            </div>
+                            <div class="payment-item" data-method="OVO">
+                                <img src="gambar/ovo.png" alt="OVO">
+                                <p>OVO</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="convenience-store">
+                            <div class="payment-item" data-method="Indomaret">
+                                <img src="gambar/indo.png" alt="Indomaret">
+                                <p>Indomaret</p>
+                            </div>
+                            <div class="payment-item" data-method="Alfamart">
+                                <img src="gambar/alfa.png" alt="Alfamart">
+                                <p>Alfamart</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="virtual-account">
+                            <div class="payment-item" data-method="BCA">
+                                <img src="gambar/bca.png" alt="BCA">
+                                <p>BCA</p>
+                            </div>
+                            <div class="payment-item" data-method="Mandiri">
+                                <img src="gambar/mandiri.png" alt="Mandiri">
+                                <p>Mandiri</p>
+                            </div>
+                            <div class="payment-item" data-method="BNI">
+                                <img src="gambar/bni.png" alt="BNI">
+                                <p>BNI</p>
+                            </div>
+                            <div class="payment-item" data-method="BRI">
+                                <img src="gambar/bri.png" alt="BRI">
+                                <p>BRI</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="selected-payment-method" name="selected_payment_method">
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">Masukkan Nomor Whatsapp</label>
+                        <input type="number" id="whatsapp-number" name="whatsapp_number" placeholder="+62" style="border-radius: 20px;" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Konfirmasi Top Up">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Xcashshop. Semua Hak Cipta Dilindungi.</p>
+        <a href="file:///G:/1.%20FadjrieYaumil%20F/UNAND%20INFORMATIKA/Assigment%20Informatika%20Semester%204/pemrogramanWeb/tb/test.html">
+            <img src="gambar/shop.png" width="100" height="auto" alt="Footer Image">
+        </a>
+    </div>
+    <script>
+    const tabs = document.querySelectorAll('.tabs .tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const nominalItems = document.querySelectorAll('.nominal-item');
+    const paymentItems = document.querySelectorAll('.payment-item');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            tabContents.forEach(tc => tc.classList.remove('active'));
+            document.getElementById(tab.getAttribute('data-target')).classList.add('active');
+        });
+    });
+
+    nominalItems.forEach(item => {
+        item.addEventListener('click', () => {
+            nominalItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            document.getElementById('selected-nominal').value = item.getAttribute('data-value');
+        });
+    });
+
+    paymentItems.forEach(item => {
+        item.addEventListener('click', () => {
+            paymentItems.forEach(i => i.classList.remove('active-payment'));
+            item.classList.add('active-payment');
+            document.getElementById('selected-payment-method').value = item.getAttribute('data-method');
+        });
+    });
+
+    function validateForm() {
+        const selectedNominal = document.getElementById('selected-nominal').value;
+        const selectedPaymentMethod = document.getElementById('selected-payment-method').value;
+
+        if (!selectedNominal || !selectedPaymentMethod) {
+            alert("Please select both a nominal value and a payment method.");
+            return false;
+        }
+        return true;
+    }
+    </script>
+</body>
+</html>

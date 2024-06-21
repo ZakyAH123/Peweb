@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xcashshop</title>
+    <style>
+        body {
+            background-color: #1e1e2e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .left-panel {
+            width: 300px;
+            margin-right: 20px;
+            background-color: #2e2e3e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .left-panel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .left-panel p {
+            margin-top: 10px;
+        }
+        .right-panel {
+            width: 600px;
+            background-color: #2e2e3e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4e4e6e;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #5e5e7e;
+        }
+        .nominal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .nominal-item {
+            background-color: #3e3e4e;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nominal-item:hover {
+            background-color: #4e4e6e;
+        }
+        .nominal-item.active {
+            background-color: #3e3e4e;
+            border: 2px solid #5e81ac;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .nominal-item.active::before {
+            content: '✔';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: #5e81ac;
+            font-weight: bold;
+        }
+        .payment-methods {
+            margin-top: 20px;
+        }
+        .payment-methods .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .payment-methods .tabs div {
+            background-color: #3e3e4e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            margin: 0 5px;
+        }
+        .payment-methods .tabs div:hover,
+        .payment-methods .tabs div.active {
+            transform: scale(1.1);
+            background-color: #4e4e6e;
+        }
+        .payment-methods .tab-content {
+            display: none;
+        }
+        .payment-methods .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .payment-item {
+            background-color: #3e3e4e;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .payment-item img {
+            width: 40px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .payment-item.active-payment {
+            background-color: #5e81ac;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #3e3e4e;
+            margin-top: 20px;
+        }
+        .footer img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="gambar/header.webp" alt="Header Image">
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="left-panel">
+                <img src="gambar/sauge.webp"  width="30%" alt="Game Image">
+                <p>Sausage Man</p>
+                <p>Top-Up Candies Sausage Man Dengan diskon hingga 20%:</p>
+                <ol>
+                    <li>Masukkan User ID</li>
+                    <li>Pilih Nominal Top Up</li>
+                    <li>Pilih Metode Pembayaran</li>
+                    <li>Masukkan Nomor Whatsapp untuk Konfirmasi dan Bukti Pembayaran</li>
+                    <li>Konfirmasi Top Up</li>
+                </ol>
+            </div>
+            <div class="right-panel">
+                <form>
+                    <div class="form-group">
+                        <label for="user-id">Masukkan User ID</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" id="user-id" name="user-id" style="border-radius: 20px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="top-up">Pilih Nominal Top Up</label>
+                        <div class="nominal-grid">
+                            <div class="nominal-item" data-value="40">60  Candies - Rp 14.000</div>
+                            <div class="nominal-item" data-value="40">180 Candies - Rp 44.000</div>
+                            <div class="nominal-item" data-value="90">316 Candies - Rp 68.000</div>
+                            <div class="nominal-item" data-value="230">718 Candies - Rp 135.500</div>
+                            <div class="nominal-item" data-value="470">1368 Candies - Rp 275.000</div>
+                            <div class="nominal-item" data-value="950">2118 Candies - Rp 430.000</div>
+                            <div class="nominal-item" data-value="950">3548 Candies - Rp 676.000</div>
+                            <div class="nominal-item" data-value="950">7048 Candies - Rp 1.351.000</div>                        </div>
+                    </div>
+                    <div class="form-group payment-methods">
+                        <label for="payment-method">Pilih Pembayaran</label>
+                        <div class="tabs">
+                            <div class="tab active" data-target="qris">QRIS</div>
+                            <div class="tab" data-target="e-wallet">E-Wallet</div>
+                            <div class="tab" data-target="convenience-store">Convenience Store</div>
+                            <div class="tab" data-target="virtual-account">Virtual Account</div>
+                        </div>
+                        <div class="tab-content active" id="qris">
+                            <div class="payment-item">
+                                <img src="gambar/qris.png" alt="QRIS">
+                                <p>QRIS Payment</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="e-wallet">
+                            <div class="payment-item">
+                                <img src="gambar/gopay.png" alt="GoPay">
+                                <p></p>
+                                <p>GoPay</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/gopay.png" alt="GoPay QR">
+                                <p></p>
+                                <p>GoPay QR</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/dana.png" alt="Dana">
+                                <p></p>
+                                <p>Dana</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/dana.png" alt="Dana QR">
+                                <p></p>
+                                <p>Dana QR</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/shope.png" alt="ShopeePay">
+                                <p></p>
+                                <p>ShopeePay</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/shope.png" alt="ShopeePay QR">
+                                <p></p>
+                                <p>ShopeePay QR</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/link.png" alt="LinkAja">
+                                <p></p>
+                                <p>LinkAja</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/ovo.png" alt="OVO">
+                                <p></p>
+                                <p>OVO</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="convenience-store">
+                            <div class="payment-item">
+                                <img src="gambar/indomaret.png" alt="Indomaret">
+                                <p></p>
+                                <p>Indomaret</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/alfamart.png" alt="Alfamart">
+                                <p></p>
+                                <p>Alfamart</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="virtual-account">
+                            <div class="payment-item">
+                                <img src="gambar/bca.png" alt="BCA">
+                                <p></p>
+                                <p>BCA</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/mandiri.png" alt="Mandiri">
+                                <p></p>
+                                <p>Mandiri</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/bni.png" alt="BNI">
+                                <p></p>
+                                <p>BNI</p>
+                            </div>
+                            <div class="payment-item">
+                                <img src="gambar/bri.png" alt="BRI">
+                                <p></p>
+                                <p>BRI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">Masukkan Nomor Whatsapp</label>
+                        <input type="number" id="whatsapp" name="whatsapp" placeholder="+62" style="border-radius: 20px;">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Konfirmasi Top Up">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 Xcashshop. Semua Hak Cipta Dilindungi.</p>
+            <a href="file:///G:/1.%20FadjrieYaumil%20F/UNAND%20INFORMATIKA/Assigment%20Informatika%20Semester%204/pemrogramanWeb/tb/test.html">
+                <img src="gambar/shop.png" width="100" height="auto" alt="Footer Image">
+            </a>
+        </div>
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.tabs .tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const nominalItems = document.querySelectorAll('.nominal-item');
+        const paymentItems = document.querySelectorAll('.payment-item');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                document.getElementById(tab.getAttribute('data-target')).classList.add('active');
+            });
+        });
+
+        nominalItems.forEach(item => {
+            item.addEventListener('click', () => {
+                nominalItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        paymentItems.forEach(item => {
+            item.addEventListener('click', () => {
+                paymentItems.forEach(i => i.classList.remove('active-payment'));
+                item.classList.add('active-payment');
+            });
+        });
+    </script>
+</body>
+</html>
