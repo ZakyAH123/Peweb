@@ -21,7 +21,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         $row = $result->fetch_assoc();
         if ($password === $row["pass"]) {
             $_SESSION['username'] = $username; // Store the username in session
-            header("Location: http://localhost/Peweb/docs/index1.php");
+            header("Location: ../docs/index1.php");
             exit;
         } else {
             header("Location: logins.php?error=Username or password incorrect");

@@ -104,10 +104,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span class="link-text">Riwayat Transaksi</span>
                     </a>
                 </div>
-                <button class="logout-button">
+                <a href="logout.php" class="logout-button">
                     <span class="icon">&#10162;</span>
                     <span class="link-text">Keluar</span>
-                </button>
+                </a>
             </nav>
         </aside>
 

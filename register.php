@@ -41,7 +41,7 @@
                         <p class="success"><?= htmlspecialchars($_GET['success']) ?></p>
                     <?php endif; ?>
                     <div class="two-forms">
-                         <div class="input-box">
+                        <div class="input-box">
                             <input type="text" name="NamaDepan" class="input-field" placeholder="Nama Depan">
                             <i class="bx bx-user"></i>
                         </div>

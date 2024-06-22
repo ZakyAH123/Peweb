@@ -29,11 +29,10 @@ session_start();
                     <a href="akun.php" id="login"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
                     <a href="logout.php"  style="color: red;">Logout</a>
                 <?php else: ?>
-                    <a href="http://localhost/Peweb/logins.php" id="login">Masuk/Daftar</a>
+                    <a href="../logins.php" id="login">Masuk/Daftar</a>
                 <?php endif; ?>
             </div>
         </nav>
-</nav>
    
     </header>
     <!-- <div class="sidebar" id="sidebar">
@@ -54,7 +53,7 @@ session_start();
         </div>
     </section>
 
-    <section id="promo">
+    <!-- <section id="promo">
         <div class="container-promo">
             <h3>Hot Deals</h3>
             <div class="promotion-list">
@@ -70,12 +69,12 @@ session_start();
                 <div class="promotion-item">
                     <a href="#"><img src="../assets/1apa.jpg" alt="Promotion 2"></a>
                 </div>
-                <!-- Add more unique promotion items as needed -->
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="topup">
+        <p id="tulisan">Best Sellers <hr id="hr"></p>
         <div class="container">
             <div class="topup-grid">
                 <div class="topup-item">
