@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xcashop</title>
     <link rel="stylesheet" href="../css/styles1.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
@@ -17,30 +18,24 @@ session_start();
 <body>
     <header>
     <nav class="navbar">
-            <div class="navbar-left">
-                <a href="#" class="menu-icon"><i data-feather="menu"></i></a>
+        <div class="navbar-left">
                 <a href="#" class="logo"><img src="../assets/xcashop.webp" alt="logo"></a>
                 <p>Website Top Up Anti Buta Map, Tercepat Dan Terpercaya Di Indonesia.</p>
             
             </div>
             <div class="navbar-right">
-                <i data-feather="log-in"></i>
                 <?php if(isset($_SESSION['username'])): ?>
                     <a href="akun.php" id="login"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
-                    <a href="logout.php"  style="color: red;">Logout</a>
+                    <a href="logout.php" style="color: red;">Logout</a>
                 <?php else: ?>
+                    <i data-feather="log-in"></i>
                     <a href="../logins.php" id="login">Masuk/Daftar</a>
                 <?php endif; ?>
             </div>
+
         </nav>
    
     </header>
-    <!-- <div class="sidebar" id="sidebar">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="register.html" id="login"> Masuk/Daftar</a>
-    </div> -->
 
 
 
@@ -262,10 +257,26 @@ session_start();
 
     <!-- <script src="/docs/script.js"></script> -->
     
+    <!-- <script src="script.js"></script> -->
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="script.js"></script>
     <script>
         feather.replace()
+    </script>
+    <script>
+         // Dapatkan elemen checkbox dan div
+ const checkbox = document.getElementById('navmenu');
+ const div = document.getElementById('myDiv');
+
+ // Tambahkan event listener untuk perubahan pada checkbox
+ checkbox.addEventListener('change', function() {
+     // Jika checkbox di-check
+     if (checkbox.checked) {
+         div.classList.add('nav');
+     } else {
+         // Jika checkbox di-uncheck
+         div.classList.remove('nav');
+     }
+ });
     </script>
 </body>
 </html>

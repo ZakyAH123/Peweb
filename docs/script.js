@@ -1,4 +1,4 @@
-  // JavaScript for slideshow
+     // JavaScript for slideshow
   let slideIndex = 0;
   showSlides();
   
@@ -24,3 +24,4 @@
       });
   });
   
+
